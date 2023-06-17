@@ -4,7 +4,7 @@ import numpy as np
 from collections import deque
 from snake_game_AI import SnakeGameAI, Direction, Point, BLOCK_SIZE
 from model import Linear_QNet, QTrainer
-from helper import plot
+from snake.helper import plot
 
 
 # Optional parameters
