@@ -1,0 +1,11 @@
+[project]
+name = "snake"
+description = "Human-playable snake game and possibility to visualize a neural network learning to play snake using reinforcement learning."
+version = "0.0.1"
+
+[build-system]
+requires = [
+    "setuptools",
+    "wheel"
+]
+build-backend = "setuptools.build_meta"
