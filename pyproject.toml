@@ -2,6 +2,7 @@
 name = "snake"
 description = "Human-playable snake game and possibility to visualize a neural network learning to play snake using reinforcement learning."
 version = "0.0.1"
+authors = [{name = "William Norman", email = "vvilliamnorman@gmail.com"},]
 
 [build-system]
 requires = [
@@ -9,3 +10,5 @@ requires = [
     "wheel"
 ]
 build-backend = "setuptools.build_meta"
+
+include = ["snake"]

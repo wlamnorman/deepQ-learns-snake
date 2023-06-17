@@ -2,6 +2,7 @@ README.md
 pyproject.toml
 snake/__init__.py
 snake/agent.py
+snake/helper.py
 snake/model.py
 snake/snake_game_AI.py
 snake/snake_game_human.py

@@ -5,6 +5,7 @@ from collections import namedtuple
 import numpy as np
 
 pygame.init()
+font = pygame.font.Font(None, 25)
 
 
 class Direction(Enum):
@@ -17,13 +18,14 @@ class Direction(Enum):
 Point = namedtuple("Point", "x, y")
 
 # rgb colors
+WHITE = (255, 255, 255)
 RED = (200, 0, 0)
 BLUE1 = (0, 0, 255)
 BLUE2 = (0, 100, 255)
 BLACK = (0, 0, 0)
 
 BLOCK_SIZE = 20
-SPEED = 40
+SPEED = 100_000
 
 
 class SnakeGameAI:
@@ -78,13 +80,13 @@ class SnakeGameAI:
         game_over = False
         if self.is_collision() or self.frame_iteration > 100 * len(self.snake):
             game_over = True
-            reward = -10
+            reward = -1
             return reward, game_over, self.score
 
         # 4. place new food or just move
         if self.head == self.food:
             self.score += 1
-            reward = 10
+            reward = 1
             self._place_food()
         else:
             self.snake.pop()
@@ -134,7 +136,8 @@ class SnakeGameAI:
             pygame.Rect(self.food.x, self.food.y, BLOCK_SIZE, BLOCK_SIZE),
         )
 
-        self.display.blit("Score: " + str(self.score), [0, 0])
+        text = font.render("Score: " + str(self.score), True, WHITE)
+        self.display.blit(text, [0, 0])
         pygame.display.flip()
 
     def _move(self, action):
